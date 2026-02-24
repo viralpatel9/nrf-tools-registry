@@ -52,6 +52,22 @@ Build for a specific architecture:
   git push origin v1.0.0
   ```
 
+### Use the image on the github actions:
+```sh
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/viralpatel9/nrf-tools-registry:v1.0.0
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read versions
+        run: |
+          west build -b nrf52840dk_nrf52840
+```
+
 ---
 
 ## 🏃 Running the Docker Image Locally
