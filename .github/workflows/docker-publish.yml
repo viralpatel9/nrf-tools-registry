@@ -100,6 +100,9 @@ jobs:
           fi
           echo "tag=$LATEST_TAG" >> $GITHUB_OUTPUT
 
+      - name: Setup QEMU to run multi-arch images
+        uses: docker/setup-qemu-action@v3
+
       - name: Test Docker Image
         run: |
           echo "--- Testing Docker image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.tag }} ---"
